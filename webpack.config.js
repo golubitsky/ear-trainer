@@ -2,7 +2,7 @@ module.exports = {
   entry: "./entry.js",
   output: {
     path: __dirname,
-    filename: "js/bundle.js"
+    filename: "bundle.js"
   },
   resolve: {
     root: __dirname,
@@ -10,7 +10,14 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style!css" }
+      { test: /\.css$/, loader: "style!css" },
+      { test: /\.html$/, loader: "raw-loader" }
     ]
+  },
+  devServer: {
+    port: 3000,
+    historyApiFallback: {
+      index: 'index.html'
+    }
   }
 };
